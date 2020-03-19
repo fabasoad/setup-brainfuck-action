@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Versions
+        run: |
+          python --version
+          pip --version
       - name: Run fabasoad/brainfuck-install-action@v1.0.0
         uses: ./
         with:
