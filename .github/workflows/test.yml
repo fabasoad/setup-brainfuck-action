@@ -12,7 +12,7 @@ jobs:
       - name: Run fabasoad/brainfuck-install-action@v1.0.0
         uses: ./
         with:
-          version: ''
+          version: 0.1.dev1
       - name: Hello World
         run: |
           touch /hello-world.bf
