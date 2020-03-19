@@ -1,5 +1,5 @@
 # Brainfuck install action
-![](https://img.shields.io/github/v/release/fabasoad/brainfuck-install-action?include_prereleases) ![YAML Lint](https://github.com/fabasoad/brainfuck-install-action/workflows/YAML%20Lint/badge.svg)
+![](https://img.shields.io/github/v/release/fabasoad/brainfuck-install-action?include_prereleases) ![YAML Lint](https://github.com/fabasoad/brainfuck-install-action/workflows/YAML%20Lint/badge.svg) [![Total alerts](https://img.shields.io/lgtm/alerts/g/fabasoad/brainfuck-install-action.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/fabasoad/brainfuck-install-action/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/fabasoad/brainfuck-install-action.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/fabasoad/brainfuck-install-action/context:javascript) [![Maintainability](https://api.codeclimate.com/v1/badges/2f420ee213901de286fe/maintainability)](https://codeclimate.com/github/fabasoad/brainfuck-install-action/maintainability) [![Known Vulnerabilities](https://snyk.io/test/github/fabasoad/brainfuck-install-action/badge.svg?targetFile=package.json)](https://snyk.io/test/github/fabasoad/brainfuck-install-action?targetFile=package.json)
 
 This action installs one of the brainfuck interpreters called [brainfucky](https://pypi.org/project/brainfucky/). 
 
