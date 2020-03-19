@@ -18,5 +18,5 @@ jobs:
           touch ./hello-world.bf
           echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++" > ./hello-world.bf
           echo "+.------.--------.>>+.>++." >> ./hello-world.bf
-          brainfucky --file /hello-world.bf
+          brainfucky --file ./hello-world.bf
           rm ./hello-world.bf
