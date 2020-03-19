@@ -9,17 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Versions
-        run: |
-          python --version
-          pip --version
       - name: Run fabasoad/brainfuck-install-action@v1.0.0
         uses: ./
         with:
           version: 0.1.dev1
       - name: Hello World
         run: |
-          touch /hello-world.bf
-          echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++" > /hello-world.bf
-          echo "+.------.--------.>>+.>++." >> /hello-world.bf
+          touch ./hello-world.bf
+          echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++" > ./hello-world.bf
+          echo "+.------.--------.>>+.>++." >> ./hello-world.bf
           brainfucky --file /hello-world.bf
+          rm ./hello-world.bf

@@ -26,10 +26,11 @@ jobs:
           version: 0.1.dev1
       - name: Hello World
         run: |
-          touch /hello-world.bf
-          echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++" > /hello-world.bf
-          echo "+.------.--------.>>+.>++." >> /hello-world.bf
+          touch ./hello-world.bf
+          echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++" > ./hello-world.bf
+          echo "+.------.--------.>>+.>++." >> ./hello-world.bf
           brainfucky --file /hello-world.bf
+          rm ./hello-world.bf
 
 ```
 
