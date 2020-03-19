@@ -8,7 +8,7 @@ inputs:
   version:
     description: 'Brainfucky library version.'
     required: false
-    default: latest
+    default: null
 runs:
   using: 'node12'
   main: 'src/index.js'

@@ -4,7 +4,7 @@
 This action installs one of the brainfuck interpreters called [brainfucky](https://pypi.org/project/brainfucky/). 
 
 ## Inputs
-1. `version` - _[Optional]_ Brainfucky library version.
+1. `version` - _[Optional]_ Brainfucky library version. Default is the [latest](https://pypi.org/project/brainfucky/) version.
 
 ## Example usage
 
