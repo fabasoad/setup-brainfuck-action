@@ -1,0 +1,14 @@
+---
+name: 'Brainfuck install'
+description: 'This GitHub action installs one of the brainfuck interpreters called brainfucky.'
+# branding:
+#   icon: voicemail
+#   color: white
+inputs:
+  version:
+    description: 'Brainfucky library version.'
+    required: false
+    default: latest
+runs:
+  using: 'node12'
+  main: 'src/index.js'
