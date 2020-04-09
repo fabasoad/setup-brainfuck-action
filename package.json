@@ -1,6 +1,6 @@
 {
   "name": "brainfuck-install-action",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This GitHub action installs one of the brainfuck interpreters called brainfucky.",
   "main": "dist/index.js",
   "repository": {
@@ -30,6 +30,6 @@
     "@zeit/ncc": "^0.22.1",
     "chai": "^4.2.0",
     "mocha": "^7.1.1",
-    "mocha-param": "^2.0.0"
+    "mocha-param": "^2.0.1"
   }
 }
