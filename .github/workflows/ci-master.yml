@@ -38,5 +38,5 @@ jobs:
           touch ./hello-world.bf
           echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++" > ./hello-world.bf
           echo "+.------.--------.>>+.>++." >> ./hello-world.bf
-          brainfucky --file /hello-world.bf | grep -q 'Hello World!' || exit 1;
+          brainfucky --file ./hello-world.bf | grep -q 'Hello World!' || exit 1;
           rm ./hello-world.bf
