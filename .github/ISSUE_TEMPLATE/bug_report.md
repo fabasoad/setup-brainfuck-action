@@ -24,7 +24,7 @@ A clear and concise description of what is happening now.
 If applicable, add screenshots to help explain your problem.
 
 **Technical information (please complete the following information):**
- - OS: [e.g. MacOS]
+ - OS: [e.g. Windows 10 Enterprise v.1909 (OS Build 18363.720)]
  - `setup-brainfuck-action` version [e.g. 1.0.2]
 
 **Additional context**
