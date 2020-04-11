@@ -22,8 +22,8 @@ jobs:
     name: Brainfuck
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: fabasoad/setup-brainfuck-action@v1.0.0
+      - uses: actions/checkout@v2.1.0
+      - uses: fabasoad/setup-brainfuck-action@master
         with:
           version: 0.1.dev1
       - name: Hello World
@@ -31,7 +31,7 @@ jobs:
           touch ./hello-world.bf
           echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++" > ./hello-world.bf
           echo "+.------.--------.>>+.>++." >> ./hello-world.bf
-          brainfucky --file /hello-world.bf
+          brainfucky --file ./hello-world.bf
           rm ./hello-world.bf
 
 ```
