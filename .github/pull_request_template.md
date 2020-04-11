@@ -3,7 +3,7 @@
 ## Pull request checklist
 
 Please check if your PR fulfills the following requirements:
-- [ ] I have read the [CONTRIBUTING](https://github.com/fabasoad/brainfuck-install-action/CONTRIBUTING.md) doc.
+- [ ] I have read the [CONTRIBUTING](https://github.com/fabasoad/setup-brainfuck-action/CONTRIBUTING.md) doc.
 - [ ] Tests for the changes have been added (for bug fixes / features).
 - [ ] Docs have been reviewed and added / updated if needed (for bug fixes / features).
 - [ ] Build (`npm run build`) was run locally and any changes were pushed.

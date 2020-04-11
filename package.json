@@ -1,11 +1,11 @@
 {
-  "name": "brainfuck-install-action",
-  "version": "1.0.1",
+  "name": "setup-brainfuck-action",
+  "version": "1.0.2",
   "description": "This GitHub action installs one of the brainfuck interpreters called brainfucky.",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fabasoad/brainfuck-install-action.git"
+    "url": "git+https://github.com/fabasoad/setup-brainfuck-action.git"
   },
   "keywords": [
     "actions",
@@ -15,13 +15,13 @@
   "author": "Yevhen Fabizhevskyi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fabasoad/brainfuck-install-action/issues"
+    "url": "https://github.com/fabasoad/setup-brainfuck-action/issues"
   },
   "scripts": {
     "build": "ncc build -m src/index.js",
     "test": "mocha __tests__"
   },
-  "homepage": "https://github.com/fabasoad/brainfuck-install-action#readme",
+  "homepage": "https://github.com/fabasoad/setup-brainfuck-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.3",
     "@actions/exec": "^1.0.3"

@@ -1,5 +1,5 @@
 ---
-name: 'Brainfuck install'
+name: Setup Brainfuck
 author: Yevhen Fabizhevskyi
 description: 'This GitHub action installs one of the brainfuck interpreters called brainfucky.'
 branding:
