@@ -1,11 +1,18 @@
 ---
 name: CI (master)
 
-on: push
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   unit_tests:
     name: Unit tests
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.1.0
@@ -15,12 +22,14 @@ jobs:
           command: test
   functional_tests:
     name: Functional tests
+    timeout-minutes: 5
     strategy:
       matrix:
         os: ['ubuntu-latest','windows-latest','macos-latest']    
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
+      - uses: actions/checkout@v2.1.0
       - uses: ./
         with:
           version: 0.1.dev1
