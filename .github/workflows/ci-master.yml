@@ -34,12 +34,12 @@ jobs:
         with:
           version: 0.1.dev1
       - name: Hello World
-        if: ${{ matrix.os }} != 'windows-latest'
+        if: ${{ matrix.os != 'windows-latest' }}
         run: |
           output=$(brainfucky --file ./hello-world.bf)
           [[ "${output:32:12}" == "Hello World!" ]] || exit 1;
       - name: Hello World
-        if: ${{ matrix.os }} == 'windows-latest'
+        if: ${{ matrix.os == 'windows-latest' }}
         run: |
           FOR /F "tokens=*" %g IN ('brainfucky --file ./hello-world.bf') do (SET OUTPUT=%g)
           IF "%OUTPUT%"!="Hello World!" (
