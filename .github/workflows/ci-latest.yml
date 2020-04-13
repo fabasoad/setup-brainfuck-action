@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.1.0
         with:
-          ref: v1.0.2
+          ref: ${{ github.ref }}
       - uses: Adzz/jest_test_action@v1.0.0
         with:
           package-manager: npm
@@ -28,7 +28,7 @@ jobs:
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: fabasoad/setup-brainfuck-action@v1.0.2
+      - uses: fabasoad/setup-brainfuck-action@${{ github.ref }}
         with:
           version: 0.1.dev1
       - name: Validate command (non-Windows)
