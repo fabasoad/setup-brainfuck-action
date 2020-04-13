@@ -45,8 +45,7 @@ jobs:
       - name: Hello World
         if: ${{ matrix.os == 'windows-latest' }}
         run: |
-          New-Item -Path . -Name "hello-world.bf" -ItemType "file" -Value "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++"
-          Add-Content hello-world.bf "+.------.--------.>>+.>++."
+          New-Item -Path . -Name "hello-world.bf" -ItemType "file" -Value "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++`n+.------.--------.>>+.>++."
           $Output = (brainfucky --file ./hello-world.bf) | Out-String
           Remove-Item hello-world.bf
-          if ($Output -ne 'Hello World!') exit 1
+          &{If($Output.Substring(33, 12) -ne 'Hello World!') {exit 1}}
