@@ -43,6 +43,4 @@ jobs:
         if: ${{ matrix.os == 'windows-latest' }}
         run: |
           FOR /F "tokens=*" %g IN ('brainfucky --file ./hello-world.bf') do (SET OUTPUT=%g)
-          IF "%OUTPUT%"!="Hello World!" (
-              EXIT 1
-          )
+          python3 -c "if '%OUTPUT%' != 'Hello World!': raise Exception('Invalid output - %OUTPUT%')"
