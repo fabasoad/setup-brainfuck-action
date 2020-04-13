@@ -31,7 +31,7 @@ jobs:
       - uses: fabasoad/setup-brainfuck-action@v1.0.2
         with:
           version: 0.1.dev1
-      - name: Hello World
+      - name: Validate command (non-Windows)
         if: ${{ matrix.os != 'windows-latest' }}
         run: |
           touch ./hello-world.bf
@@ -40,7 +40,7 @@ jobs:
           output=$(brainfucky --file ./hello-world.bf)
           rm ./hello-world.bf
           [[ "${output:32:12}" == "Hello World!" ]] || exit 1;
-      - name: Hello World
+      - name: Validate command (Windows)
         if: ${{ matrix.os == 'windows-latest' }}
         run: |
           New-Item -Path . -Name "hello-world.bf" -ItemType "file" -Value "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++`n+.------.--------.>>+.>++."
