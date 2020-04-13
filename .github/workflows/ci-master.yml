@@ -25,14 +25,15 @@ jobs:
     timeout-minutes: 5
     strategy:
       matrix:
-        os: ['ubuntu-latest','windows-latest','macos-latest']    
+        os: ['ubuntu-latest','windows-latest','macos-latest']
+        version: ['0.1.dev0', '0.1.dev1']
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2.1.0
       - uses: ./
         with:
-          version: 0.1.dev1
+          version: ${{ matrix.version }}
       - name: Validate command (non-Windows)
         if: ${{ matrix.os != 'windows-latest' }}
         run: |
