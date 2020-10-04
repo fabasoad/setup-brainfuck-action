@@ -3,6 +3,8 @@ name: CI (latest)
 
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v*.*.*'
 
@@ -41,6 +43,7 @@ jobs:
           output=$(brainfucky --file ./hello-world.bf)
           rm ./hello-world.bf
           [[ "${output:32:12}" == "Hello World!" ]] || exit 1;
+        shell: bash
       - name: Validate command (Windows)
         if: ${{ matrix.os == 'windows-latest' }}
         run: |
@@ -48,3 +51,4 @@ jobs:
           $Output = (brainfucky --file hello-world.bf) | Out-String
           Remove-Item hello-world.bf
           &{If($Output.Substring(33, 12) -ne 'Hello World!') {exit 1}}
+        shell: pwsh
