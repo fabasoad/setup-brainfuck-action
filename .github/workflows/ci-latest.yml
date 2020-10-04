@@ -31,11 +31,11 @@ jobs:
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: fabasoad/setup-brainfuck-action@v1.0.2
+      - uses: fabasoad/setup-brainfuck-action@v1.0.3
         with:
           version: ${{ matrix.version }}
       - name: Validate command (non-Windows)
-        if: ${{ matrix.os != 'windows-latest' }}
+        # if: ${{ matrix.os != 'windows-latest' }}
         run: |
           touch ./hello-world.bf
           echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++" > ./hello-world.bf
@@ -44,11 +44,11 @@ jobs:
           rm ./hello-world.bf
           [[ "${output:32:12}" == "Hello World!" ]] || exit 1;
         shell: bash
-      - name: Validate command (Windows)
-        if: ${{ matrix.os == 'windows-latest' }}
-        run: |
-          New-Item -Path . -Name "hello-world.bf" -ItemType "file" -Value "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++`n+.------.--------.>>+.>++."
-          $Output = (brainfucky --file hello-world.bf) | Out-String
-          Remove-Item hello-world.bf
-          &{If($Output.Substring(33, 12) -ne 'Hello World!') {exit 1}}
-        shell: pwsh
+      # - name: Validate command (Windows)
+      #   if: ${{ matrix.os == 'windows-latest' }}
+      #   run: |
+      #     New-Item -Path . -Name "hello-world.bf" -ItemType "file" -Value "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++`n+.------.--------.>>+.>++."
+      #     $Output = (brainfucky --file hello-world.bf) | Out-String
+      #     Remove-Item hello-world.bf
+      #     &{If($Output.Substring(33, 12) -ne 'Hello World!') {exit 1}}
+      #   shell: pwsh
