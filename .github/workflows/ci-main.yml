@@ -5,9 +5,12 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+      - 'bugfix/**'
+      - 'bump/patch-**'
+      - 'feature/**'
+
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
   unit_tests:
@@ -15,22 +18,50 @@ jobs:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.3
-      - uses: Adzz/jest_test_action@v1.0.0
+      - uses: actions/checkout@v2.3.4
         with:
-          package-manager: npm
-          command: test
+          ref: ${{ github.ref }}
+      - name: Cache node_modules
+        id: yarn-cache
+        uses: actions/cache@v2.1.3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Compile
+        if: ${{ steps.yarn-cache.outputs.cache-hit != 'true' }}
+        run: yarn install
+      - name: Lint
+        run: yarn run lint
+      - name: Security tests
+        run: |
+          yarn run security:auth ${{ secrets.SNYK_API_TOKEN }}
+          yarn run security:test
+      - name: Unit tests
+        run: yarn run test
+        if: startsWith(github.ref, 'refs/heads/bugfix/') || startsWith(github.ref, 'refs/heads/feature/')
+      - name: Unit tests with coverage
+        uses: paambaati/codeclimate-action@v2.7.4
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: yarn run test
+          debug: true
   functional_tests:
     name: Functional tests
     timeout-minutes: 5
     strategy:
       matrix:
-        os: ['ubuntu-latest','windows-latest','macos-latest']
+        os: ['ubuntu-latest', 'windows-latest', 'macos-latest']
         version: ['0.1.dev0', '0.1.dev1']
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
+        with:
+          ref: ${{ github.ref }}
       - uses: ./
         with:
           version: ${{ matrix.version }}
@@ -43,6 +74,7 @@ jobs:
           output=$(brainfucky --file ./hello-world.bf)
           rm ./hello-world.bf
           [[ "${output:32:12}" == "Hello World!" ]] || exit 1;
+        shell: bash
       - name: Validate command (Windows)
         if: ${{ matrix.os == 'windows-latest' }}
         run: |
@@ -50,3 +82,4 @@ jobs:
           $Output = (brainfucky --file ./hello-world.bf) | Out-String
           Remove-Item hello-world.bf
           &{If($Output.Substring(33, 12) -ne 'Hello World!') {exit 1}}
+        shell: pwsh

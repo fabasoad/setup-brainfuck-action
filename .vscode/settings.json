@@ -1,0 +1,13 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "fixAll.eslint": true,
+    "source.organizeImports": true,
+    "typescript.suggestionActions.enabled": true
+  },
+  "cSpell.words": [
+    "brainfuck",
+    "brainfucky"
+  ],
+  "editor.rulers": [ 80 ]
+}

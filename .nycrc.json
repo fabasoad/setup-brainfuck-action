@@ -1,0 +1,9 @@
+{
+  "check-coverage": true,
+  "branches": 60,
+  "lines": 85.71,
+  "functions": 66.67,
+  "statements": 85.71,
+  "extension": ["js"],
+  "reporter": ["lcov","text","text-summary"]
+}
