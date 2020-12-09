@@ -5,7 +5,8 @@ class Command {
   }
   build() {
     const sudo = this.platform !== 'win32' ? 'sudo ' : '';
-    return `${sudo}pip3 install brainfucky` + (this.version ? `==${this.version}` : '');
+    const v = this.version ? `==${this.version}` : '';
+    return `${sudo}pip3 install brainfucky${v}`;
   }
 }
 
