@@ -54,7 +54,7 @@ jobs:
     timeout-minutes: 5
     strategy:
       matrix:
-        os: ['ubuntu-latest','windows-latest','macos-latest']
+        os: ['ubuntu-latest', 'windows-latest', 'macos-latest']
         version: ['0.1.dev0', '0.1.dev1']
       fail-fast: false
     runs-on: ${{ matrix.os }}
