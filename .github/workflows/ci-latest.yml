@@ -47,7 +47,7 @@ jobs:
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: fabasoad/setup-brainfuck-action@v1.0.3
+      - uses: fabasoad/setup-brainfuck-action@main
         with:
           version: ${{ matrix.version }}
       - name: Validate command (non-Windows)
