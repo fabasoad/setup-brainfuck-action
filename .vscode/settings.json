@@ -8,7 +8,9 @@
   "cSpell.words": [
     "UNSECURE",
     "brainfuck",
-    "brainfucky"
+    "brainfucky",
+    "lcov",
+    "vercel"
   ],
   "editor.rulers": [ 80 ]
 }
