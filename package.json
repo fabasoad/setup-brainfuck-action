@@ -1,6 +1,6 @@
 {
   "name": "setup-brainfuck-action",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "This GitHub action installs one of the brainfuck interpreters called brainfucky.",
   "main": "dist/index.js",
   "repository": {
@@ -41,7 +41,7 @@
     "mocha": "8.2.1",
     "mocha-param": "2.0.1",
     "nyc": "15.1.0",
-    "snyk": "1.437.2"
+    "snyk": "1.437.3"
   },
   "snyk": true,
   "husky": {
