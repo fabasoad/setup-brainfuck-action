@@ -9,7 +9,9 @@
     "UNSECURE",
     "brainfuck",
     "brainfucky",
+    "issuehunt",
     "lcov",
+    "liberapay",
     "vercel"
   ],
   "editor.rulers": [ 80 ]
