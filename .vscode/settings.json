@@ -9,9 +9,13 @@
     "UNSECURE",
     "brainfuck",
     "brainfucky",
+    "freebsd",
     "issuehunt",
     "lcov",
     "liberapay",
+    "markdownlint",
+    "openbsd",
+    "sunos",
     "vercel"
   ],
   "editor.rulers": [ 80 ]
