@@ -1,6 +1,6 @@
 {
   "name": "setup-brainfuck-action",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "This GitHub action installs one of the brainfuck interpreters called brainfucky.",
   "main": "dist/index.js",
   "repository": {
@@ -35,9 +35,9 @@
     "@actions/exec": "1.0.4"
   },
   "devDependencies": {
-    "@vercel/ncc": "0.26.1",
+    "@vercel/ncc": "0.27.0",
     "chai": "4.2.0",
-    "eslint": "7.16.0",
+    "eslint": "7.18.0",
     "eslint-config-google": "0.14.0",
     "git-branch-is": "4.0.0",
     "husky": "5.0.6",
@@ -45,7 +45,7 @@
     "mocha": "8.2.1",
     "mocha-param": "2.0.1",
     "nyc": "15.1.0",
-    "snyk": "1.437.3"
+    "snyk": "1.437.4"
   },
   "snyk": true
 }
