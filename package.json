@@ -1,6 +1,6 @@
 {
   "name": "setup-brainfuck-action",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "This GitHub action installs one of the brainfuck interpreters called brainfucky.",
   "main": "dist/index.js",
   "repository": {
@@ -31,13 +31,13 @@
   },
   "homepage": "https://github.com/fabasoad/setup-brainfuck-action#readme",
   "dependencies": {
-    "@actions/core": "1.2.6",
+    "@actions/core": "1.2.7",
     "@actions/exec": "1.0.4"
   },
   "devDependencies": {
-    "@vercel/ncc": "0.28.2",
+    "@vercel/ncc": "0.28.4",
     "chai": "4.3.4",
-    "eslint": "7.24.0",
+    "eslint": "7.25.0",
     "eslint-config-google": "0.14.0",
     "git-branch-is": "4.0.0",
     "husky": "6.0.0",
@@ -45,7 +45,7 @@
     "mocha": "8.3.2",
     "mocha-param": "2.0.1",
     "nyc": "15.1.0",
-    "snyk": "1.530.0"
+    "snyk": "1.574.0"
   },
   "snyk": true
 }
