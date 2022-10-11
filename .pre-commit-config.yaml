@@ -19,7 +19,7 @@ repos:
         stages: ["push"]
   # Security
   - repo: https://github.com/Yelp/detect-secrets
-    rev: v1.3.0
+    rev: v1.4.0
     hooks:
       - id: detect-secrets
         stages: ["commit", "push"]
@@ -35,7 +35,7 @@ repos:
         stages: ["push"]
   # TypeScript
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v8.24.0
+    rev: v8.25.0
     hooks:
       - id: eslint
         args: ['--fix']
