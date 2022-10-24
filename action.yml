@@ -1,15 +1,18 @@
 ---
 name: Setup Brainfuck
 author: Yevhen Fabizhevskyi
-description: 'This GitHub action installs one of the brainfuck interpreters called brainfucky.'
+description: 'This GitHub action installs one of the brainfuck interpreters called brainfucky'
 branding:
   icon: chevrons-right
   color: gray-dark
 inputs:
   version:
-    description: 'Brainfucky library version.'
+    description: 'Brainfucky library version'
     required: false
-    default: null
+    default: '0.1.dev1'
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: 'composite'
+  steps:
+    - name: Install Brainfuck
+      run: pip3 install brainfucky==${{ inputs.version }}
+      shell: bash
