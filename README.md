@@ -9,9 +9,9 @@ This action installs one of the brainfuck interpreters called [brainfucky](https
 ## Inputs
 
 <!-- markdownlint-disable MD013 -->
-| Name    | Required | Description                                                                                       | Default | Possible values |
-|---------|----------|---------------------------------------------------------------------------------------------------|---------|-----------------|
-| version | No       | Brainfucky library version. Default is the [latest](https://pypi.org/project/brainfucky/) version | latest  | &lt;String&gt;  |
+| Name    | Required | Description                                                                                       | Default    | Possible values        |
+|---------|----------|---------------------------------------------------------------------------------------------------|------------|------------------------|
+| version | No       | Brainfucky library version that can be found [here](https://pypi.org/project/brainfucky/) version | `0.1.dev1` | `0.1.dev1`, `0.1.dev0` |
 <!-- markdownlint-enable MD013 -->
 
 ## Example usage
