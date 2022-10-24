@@ -9,7 +9,10 @@ inputs:
   version:
     description: 'Brainfucky library version.'
     required: false
-    default: null
+    default: '0.1.dev1'
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: 'composite'
+  steps:
+    - name: Install Brainfuck
+      run: pip install brainfucky==${{ inputs.version }}
+      shell: bash
