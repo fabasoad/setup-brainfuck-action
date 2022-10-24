@@ -14,5 +14,8 @@ runs:
   using: 'composite'
   steps:
     - name: Install Brainfuck
-      run: pip install brainfucky==${{ inputs.version }}
+      run: |
+        pip --version
+        pip3 --version
+        pip install brainfucky==${{ inputs.version }}
       shell: bash
