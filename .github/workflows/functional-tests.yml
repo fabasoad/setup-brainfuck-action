@@ -29,6 +29,7 @@ jobs:
           echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++" > ./hello-world.bf
           echo "+.------.--------.>>+.>++." >> ./hello-world.bf
           output=$(brainfucky --file ./hello-world.bf)
+          echo "^$output^"
           rm -f ./hello-world.bf
           [ "$(echo "$output" | cut -b32- | cut -b-12)" = "Hello World!" ] || exit 1;
         shell: sh
