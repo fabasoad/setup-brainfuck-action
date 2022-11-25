@@ -28,11 +28,10 @@ jobs:
           touch ./hello-world.bf
           echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++" > ./hello-world.bf
           echo "+.------.--------.>>+.>++." >> ./hello-world.bf
-          output=$(brainfucky --file ./hello-world.bf | cut -b32-)
-          echo "^$output^"
-          rm -f ./hello-world.bf
-          [ "${output}" = "Hello World!" ] || exit 1;
-        shell: sh
+          output=$(brainfucky --file ./hello-world.bf)
+          rm ./hello-world.bf
+          [[ "${output:32:12}" == "Hello World!" ]] || exit 1;
+        shell: bash
       - name: Validate command (Windows)
         if: ${{ runner.os == 'Windows' }}
         run: |
