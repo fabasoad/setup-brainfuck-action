@@ -39,13 +39,12 @@ jobs:
           echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++" > ./hello-world.bf
           echo "+.------.--------.>>+.>++." >> ./hello-world.bf
           brainfucky --file ./hello-world.bf
-          rm -f ./hello-world.bf
-        shell: sh
+          rm ./hello-world.bf
 ```
 
 ### Result
 
-```shell
+```text
 executing file ./hello-world.bf
 Hello World!
 ```
