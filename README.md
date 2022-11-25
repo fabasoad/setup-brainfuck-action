@@ -6,19 +6,21 @@
 
 This action installs one of the brainfuck interpreters called [brainfucky](https://pypi.org/project/brainfucky/).
 
+## Prerequisites
+
+The following tools have to be installed for successful work of this GitHub action:
+[pip3](https://pip.pypa.io/en/stable/).
+
 ## Inputs
 
-<!-- markdownlint-disable MD013 -->
 | Name    | Required | Description                                                                                       | Default    | Possible values        |
 |---------|----------|---------------------------------------------------------------------------------------------------|------------|------------------------|
 | version | No       | Brainfucky library version that can be found [here](https://pypi.org/project/brainfucky/) version | `0.1.dev1` | `0.1.dev1`, `0.1.dev0` |
-<!-- markdownlint-enable MD013 -->
 
 ## Example usage
 
 ### Workflow configuration
 
-<!-- markdownlint-disable MD013 -->
 ```yaml
 name: Test
 
@@ -39,11 +41,10 @@ jobs:
           brainfucky --file ./hello-world.bf
           rm ./hello-world.bf
 ```
-<!-- markdownlint-enable MD013 -->
 
 ### Result
 
-```shell
+```text
 executing file ./hello-world.bf
 Hello World!
 ```

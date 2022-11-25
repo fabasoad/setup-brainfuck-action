@@ -15,4 +15,4 @@ runs:
   steps:
     - name: Install Brainfuck
       run: pip3 install brainfucky==${{ inputs.version }}
-      shell: bash
+      shell: sh
