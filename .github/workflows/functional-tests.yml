@@ -5,23 +5,20 @@ on:
   push:
     branches:
       - 'main'
-      - 'fix-*'
-      - 'feature-*'
+  pull_request:
 
 jobs:
   functional_tests:
     name: Run script
     timeout-minutes: 5
     strategy:
+      fail-fast: false
       matrix:
         os: ['ubuntu-latest', 'windows-latest', 'macos-latest']
         version: ['0.1.dev0', '0.1.dev1']
-      fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.ref }}
       - uses: ./
         with:
           version: ${{ matrix.version }}
@@ -32,9 +29,9 @@ jobs:
           echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++" > ./hello-world.bf
           echo "+.------.--------.>>+.>++." >> ./hello-world.bf
           output=$(brainfucky --file ./hello-world.bf)
-          rm ./hello-world.bf
-          [[ "${output:32:12}" == "Hello World!" ]] || exit 1;
-        shell: bash
+          rm -f ./hello-world.bf
+          [ "${output:32:12}" = "Hello World!" ] || exit 1;
+        shell: sh
       - name: Validate command (Windows)
         if: ${{ matrix.os == 'windows-latest' }}
         run: |
