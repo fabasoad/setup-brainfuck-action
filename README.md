@@ -3,7 +3,7 @@
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
 ![Releases](https://img.shields.io/github/v/release/fabasoad/setup-brainfuck-action?include_prereleases)
 ![Functional Tests](https://github.com/fabasoad/setup-brainfuck-action/workflows/Functional%20Tests/badge.svg)
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/fabasoad/setup-brainfuck-action/main.svg)](https://results.pre-commit.ci/latest/github/fabasoad/setup-brainfuck-action/main)
+![pre-commit](https://github.com/fabasoad/setup-brainfuck-action/actions/workflows/pre-commit.yml/badge.svg)
 
 This action installs one of the brainfuck interpreters called [brainfucky](https://pypi.org/project/brainfucky/).
 
@@ -14,9 +14,11 @@ The following tools have to be installed for successful work of this GitHub acti
 
 ## Inputs
 
+<!-- prettier-ignore-start -->
 | Name    | Required | Description                                                                                       | Default    | Possible values        |
 |---------|----------|---------------------------------------------------------------------------------------------------|------------|------------------------|
 | version | No       | Brainfucky library version that can be found [here](https://pypi.org/project/brainfucky/) version | `0.1.dev1` | `0.1.dev1`, `0.1.dev0` |
+<!-- prettier-ignore-end -->
 
 ## Example usage
 
