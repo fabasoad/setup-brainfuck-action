@@ -2,7 +2,7 @@
 
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
 ![Releases](https://img.shields.io/github/v/release/fabasoad/setup-brainfuck-action?include_prereleases)
-![Functional Tests](https://github.com/fabasoad/setup-brainfuck-action/workflows/Functional%20Tests/badge.svg)
+![functional-tests](https://github.com/fabasoad/setup-brainfuck-action/actions/workflows/functional-tests.yml/badge.svg)
 ![pre-commit](https://github.com/fabasoad/setup-brainfuck-action/actions/workflows/pre-commit.yml/badge.svg)
 
 This action installs one of the brainfuck interpreters called [brainfucky](https://pypi.org/project/brainfucky/).
