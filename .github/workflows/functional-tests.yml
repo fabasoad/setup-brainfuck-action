@@ -65,14 +65,9 @@ jobs:
           test_equal "setup-brainfuck should be installed" \
             "${{ steps.setup-brainfuck.outputs.installed }}" \
             "true"
-      - name: Validate command
-        run: |
-          {
-            echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++"
-            echo "+.------.--------.>>+.>++."
-          } > ./hello-world.bf
-          brainfucky --file ./hello-world.bf | head -n 2
-          [ "$(brainfucky --file ./hello-world.bf | head -n 2)" = "Hello World!" ] || exit 1
+          test_equal "Wrong execution output" \
+            "$(brainfucky --file ./hello-world.bf | sed -n '2p')" \
+            "Hello World!"
   test-force:
     name: Test force
     runs-on: ubuntu-latest
