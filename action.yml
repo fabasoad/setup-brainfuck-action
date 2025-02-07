@@ -7,12 +7,74 @@ branding:
   color: gray-dark
 inputs:
   version:
-    description: "Brainfucky library version"
+    description: brainfucky interpreter version.
     required: false
-    default: "0.1.dev1"
+    default: "latest"
+  force:
+    description: |
+      If "false" skips installation if brainfucky is already installed. If
+      "true" installs brainfucky in any case. Defaults to "false".
+    required: false
+    default: "false"
+  github-token:
+    description: |
+      GitHub token that is used to send requests to GitHub API such as getting
+      available python versions. Defaults to the token provided by GitHub Actions
+      environment.
+    required: false
+    default: ${{ github.token }}
+outputs:
+  installed:
+    description: Whether brainfucky was installed or not.
+    value: "${{ steps.install-brainfucky.outcome == 'success' }}"
 runs:
   using: "composite"
   steps:
-    - name: Install Brainfuck
-      run: pip3 install brainfucky==${{ inputs.version }}
+    - name: Validate inputs
+      env:
+        INPUT_VERSION: "${{ inputs.version }}"
+        INPUT_FORCE: "${{ inputs.force }}"
+      run: ./validate-inputs.sh "${INPUT_VERSION}" "${INPUT_FORCE}"
+      shell: sh
+      working-directory: ${{ github.action_path }}/src
+
+    - name: Collect info
+      id: info
+      env:
+        INPUT_FORCE: "${{ inputs.force }}"
+      run: ./collect-info.sh "${INPUT_FORCE}"
+      shell: sh
+      working-directory: "${{ github.action_path }}/src"
+
+    - name: Setup Python
+      if: steps.info.outputs.bin-installed == 'false' && steps.info.outputs.python-installed == 'false'
+      uses: actions/setup-python@v5
+      with:
+        token: "${{ inputs.github-token }}"
+        python-version: "3.13"
+
+    - name: Upgrade pip
+      if: steps.info.outputs.bin-installed == 'false'
+      run: python -m pip install --upgrade pip
+      shell: sh
+
+    - name: Get latest release
+      if: steps.info.outputs.bin-installed == 'false' && inputs.version == 'latest'
+      id: latest-release
+      env:
+        TARGET_PIP_PACKAGE: "brainfucky"
+      run: ./get-latest-release.sh "${TARGET_PIP_PACKAGE}"
+      shell: sh
+      working-directory: "${{ github.action_path }}/src"
+
+    - name: Install brainfucky
+      if: steps.info.outputs.bin-installed == 'false'
+      id: install-brainfucky
+      env:
+        VERSION: "${{ inputs.version == 'latest' && steps.latest-release.outputs.version || inputs.version }}"
+      run: python -m pip install brainfucky==${VERSION}
+      shell: sh
+
+    - name: Print version
+      run: brainfucky --version
       shell: sh
