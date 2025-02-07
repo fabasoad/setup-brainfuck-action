@@ -10,6 +10,7 @@ on: # yamllint disable-line rule:truthy
       - .github/workflows/functional-tests.yml
       - src/**
       - action.yml
+      - hello-world.bf
   schedule:
     # Every Friday at 09:00 JST
     - cron: "0 0 * * 5"
