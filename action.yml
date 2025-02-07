@@ -75,6 +75,8 @@ runs:
       run: python -m pip install brainfucky==${VERSION}
       shell: sh
 
-    - name: Print help
-      run: brainfucky --help
+    - name: Print version
+      env:
+        VERSION: "${{ inputs.version == 'latest' && steps.latest-release.outputs.version || inputs.version }}"
+      run: echo "brainfucky ${VERSION}"
       shell: sh

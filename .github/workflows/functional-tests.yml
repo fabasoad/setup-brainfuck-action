@@ -70,7 +70,8 @@ jobs:
           {
             echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.++"
             echo "+.------.--------.>>+.>++."
-          } >> ./hello-world.bf
+          } > ./hello-world.bf
+          brainfucky --file ./hello-world.bf
           [ "$(brainfucky --file ./hello-world.bf)" = "Hello World!" ] || exit 1
   test-force:
     name: Test force
