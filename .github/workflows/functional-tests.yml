@@ -63,7 +63,7 @@ jobs:
             fi
           }
           test_equal "setup-brainfuck should be installed" \
-            "${{ steps.setup-setup-brainfuck.outputs.installed }}" \
+            "${{ steps.setup-brainfuck.outputs.installed }}" \
             "true"
       - name: Validate command
         run: |
