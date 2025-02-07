@@ -75,6 +75,6 @@ runs:
       run: python -m pip install brainfucky==${VERSION}
       shell: sh
 
-    - name: Print version
-      run: brainfucky --version
+    - name: Print help
+      run: brainfucky --help
       shell: sh
