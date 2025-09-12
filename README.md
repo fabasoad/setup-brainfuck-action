@@ -61,8 +61,8 @@ jobs:
     name: Brainfuck
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
-      - uses: fabasoad/setup-brainfuck-action@main
+      - uses: actions/checkout@v5
+      - uses: fabasoad/setup-brainfuck-action@v1
       - name: Hello World
         run: |
           touch ./hello-world.bf
@@ -78,3 +78,7 @@ jobs:
 executing file ./hello-world.bf
 Hello World!
 ```
+
+## Contributions
+
+![Alt](https://repobeats.axiom.co/api/embed/bda1607cef301c7ff91531d86ea8f3578ba10c86.svg "Repobeats analytics image")
