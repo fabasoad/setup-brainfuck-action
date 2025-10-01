@@ -48,7 +48,7 @@ runs:
 
     - name: Setup Python
       if: steps.info.outputs.bin-installed == 'false' && steps.info.outputs.python-installed == 'false'
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         token: "${{ inputs.github-token }}"
         python-version: "3.13"
