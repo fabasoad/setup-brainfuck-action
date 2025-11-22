@@ -51,7 +51,7 @@ runs:
       uses: actions/setup-python@v6
       with:
         token: "${{ inputs.github-token }}"
-        python-version: "3.13"
+        python-version: "3.14"
 
     - name: Upgrade pip
       if: steps.info.outputs.bin-installed == 'false'
